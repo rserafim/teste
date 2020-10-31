@@ -13,8 +13,6 @@ export default createGlobalStyle`
     background: #eee;
     color: #CC00EB;
     -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
   }
 
   body, input, button {
