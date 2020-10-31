@@ -5,7 +5,7 @@ import RandomColors from '../RandomColors'
 
 import api from '../../services/api';
 
-import { Container, Header, Alternatives, ViewButton, ViewButtonDisable } from './styles';
+import { Container, Header, Alternatives, ViewButton } from './styles';
 
 interface QuestionProps {
     question: {
@@ -40,7 +40,6 @@ const Question: React.FC<QuestionProps> = (question) => {
     const [colorC, setColorC] = useState<string>('');
     const [colorD, setColorD] = useState<string>('');
     const [colorE, setColorE] = useState<string>('');
-    const [confirmButton, setConfirmButton] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState<string>('');
     const [openModal, setOpenModal] = useState(false);
 
@@ -59,7 +58,6 @@ const Question: React.FC<QuestionProps> = (question) => {
     }, [])
 
     const handleAnswer = useCallback(e => {
-        setConfirmButton(true)
         setSelectedAnswer(e.target.value)
     }, [])
 
