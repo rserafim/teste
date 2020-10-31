@@ -9,13 +9,6 @@ export default createGlobalStyle`
     max-width: 500px;
     margin: 0 auto;
   }
-  html {
-  height: -webkit-fill-available;
-  height: 100%;
-}
-html, body, #root {
-  height: 100%;
-}
   body {
     background: #eee;
     color: #CC00EB;
