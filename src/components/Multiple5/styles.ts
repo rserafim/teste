@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 
 export const Header = styled.div`
-    height: 20vh;
-    min-height: 20vh;
-    max-height: 20vh;
+    height: 15vh;
     background:linear-gradient(90deg, #000000 0%, #DB00FA 100%);
 
     display: flex;
@@ -22,11 +20,10 @@ export const Header = styled.div`
 `;
 
 export const Alternatives = styled.div`
-    height: 72vh;
+    height: 70vh;
     width: 100%;
     background-color: #000;
     display: flex;
-    align-items: flex-start;
     justify-content: space-around;
     flex-direction: column;
 
@@ -50,7 +47,7 @@ export const ViewButton = styled.button`
     width: 100vw;
     height: 8vh;
     min-height: 8vh;
-    border: 3px solid #37EDA0;
+    border: 0px;
     background-color: #37EDA0;
     color: #000;
     font-weight: bold;
