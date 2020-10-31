@@ -1,4 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react';
+import Div100vh from 'react-div-100vh';
 
 import ModalAnswerSent from '../ModalAnswerSent';
 import RandomColors from '../RandomColors'
@@ -70,137 +71,139 @@ const Question: React.FC<QuestionProps> = (question) => {
         setOpenModal(true)
     }, [question.question.id, selectedAnswer])
     return (
-        <Container>
-            <Header>
-                <h1>{question.question.title}</h1>
-            </Header>
-            {
-                openModal && (
-                    <ModalAnswerSent />
-                )
-            }
-            <Alternatives>
+        <Div100vh>
+            <Container>
+                <Header>
+                    <h1>{question.question.title}</h1>
+                </Header>
                 {
-                    question.question.image_a_url && question.question.answer_a ? (
-                        <button value={question.question.answer_a}
-                            onClick={(e) => handleAnswer(e)}
-                            style={selectedAnswer === question.question.answer_a || selectedAnswer === '' ? {
-                                backgroundImage: `url(${question.question.image_a_url})`,
-                                backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
-                            } :
-                                {
+                    openModal && (
+                        <ModalAnswerSent />
+                    )
+                }
+                <Alternatives>
+                    {
+                        question.question.image_a_url && question.question.answer_a ? (
+                            <button value={question.question.answer_a}
+                                onClick={(e) => handleAnswer(e)}
+                                style={selectedAnswer === question.question.answer_a || selectedAnswer === '' ? {
                                     backgroundImage: `url(${question.question.image_a_url})`,
-                                    backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%', opacity: 0.3
-                                }}
-                        />
-                    ) : question.question.answer_a ?
-                            (
-                                <button value={question.question.answer_a}
-                                    onClick={(e) => handleAnswer(e)}
-                                    style={selectedAnswer === question.question.answer_a || selectedAnswer === '' ? { background: colorA } : { background: colorA, opacity: 0.3 }}
-                                >
-                                    {question.question.answer_a}
-                                </button>
-                            ) : null
-                }
-                {
-                    question.question.image_b_url && question.question.answer_b ? (
-                        <button value={question.question.answer_b}
-                            onClick={(e) => handleAnswer(e)}
-                            style={selectedAnswer === question.question.answer_b || selectedAnswer === '' ? {
-                                backgroundImage: `url(${question.question.image_b_url})`,
-                                backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
-                            } :
-                                {
+                                    backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
+                                } :
+                                    {
+                                        backgroundImage: `url(${question.question.image_a_url})`,
+                                        backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%', opacity: 0.3
+                                    }}
+                            />
+                        ) : question.question.answer_a ?
+                                (
+                                    <button value={question.question.answer_a}
+                                        onClick={(e) => handleAnswer(e)}
+                                        style={selectedAnswer === question.question.answer_a || selectedAnswer === '' ? { background: colorA } : { background: colorA, opacity: 0.3 }}
+                                    >
+                                        {question.question.answer_a}
+                                    </button>
+                                ) : null
+                    }
+                    {
+                        question.question.image_b_url && question.question.answer_b ? (
+                            <button value={question.question.answer_b}
+                                onClick={(e) => handleAnswer(e)}
+                                style={selectedAnswer === question.question.answer_b || selectedAnswer === '' ? {
                                     backgroundImage: `url(${question.question.image_b_url})`,
-                                    backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%', opacity: 0.3
-                                }}
-                        />
-                    ) : question.question.answer_b ?
-                            (
-                                <button value={question.question.answer_b}
-                                    onClick={(e) => handleAnswer(e)}
-                                    style={selectedAnswer === question.question.answer_b || selectedAnswer === '' ? { background: colorB } : { background: colorB, opacity: 0.3 }}
-                                >
-                                    {question.question.answer_b}
-                                </button>
-                            ) : null
-                }
-                {
-                    question.question.image_c_url && question.question.answer_c ? (
-                        <button value={question.question.answer_c}
-                            onClick={(e) => handleAnswer(e)}
-                            style={selectedAnswer === question.question.answer_c || selectedAnswer === '' ? {
-                                backgroundImage: `url(${question.question.image_c_url})`,
-                                backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
-                            } :
-                                {
+                                    backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
+                                } :
+                                    {
+                                        backgroundImage: `url(${question.question.image_b_url})`,
+                                        backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%', opacity: 0.3
+                                    }}
+                            />
+                        ) : question.question.answer_b ?
+                                (
+                                    <button value={question.question.answer_b}
+                                        onClick={(e) => handleAnswer(e)}
+                                        style={selectedAnswer === question.question.answer_b || selectedAnswer === '' ? { background: colorB } : { background: colorB, opacity: 0.3 }}
+                                    >
+                                        {question.question.answer_b}
+                                    </button>
+                                ) : null
+                    }
+                    {
+                        question.question.image_c_url && question.question.answer_c ? (
+                            <button value={question.question.answer_c}
+                                onClick={(e) => handleAnswer(e)}
+                                style={selectedAnswer === question.question.answer_c || selectedAnswer === '' ? {
                                     backgroundImage: `url(${question.question.image_c_url})`,
-                                    backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%', opacity: 0.3
-                                }}
-                        />
-                    ) : question.question.answer_c ?
-                            (
-                                <button value={question.question.answer_c}
-                                    onClick={(e) => handleAnswer(e)}
-                                    style={selectedAnswer === question.question.answer_c || selectedAnswer === '' ? { background: colorC } : { background: colorC, opacity: 0.3 }}
-                                >
-                                    {question.question.answer_c}
-                                </button>
-                            ) : null
-                }
-                {
-                    question.question.image_d_url && question.question.answer_d ? (
-                        <button value={question.question.answer_d}
-                            onClick={(e) => handleAnswer(e)}
-                            style={selectedAnswer === question.question.answer_d || selectedAnswer === '' ? {
-                                backgroundImage: `url(${question.question.image_d_url})`,
-                                backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
-                            } :
-                                {
+                                    backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
+                                } :
+                                    {
+                                        backgroundImage: `url(${question.question.image_c_url})`,
+                                        backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%', opacity: 0.3
+                                    }}
+                            />
+                        ) : question.question.answer_c ?
+                                (
+                                    <button value={question.question.answer_c}
+                                        onClick={(e) => handleAnswer(e)}
+                                        style={selectedAnswer === question.question.answer_c || selectedAnswer === '' ? { background: colorC } : { background: colorC, opacity: 0.3 }}
+                                    >
+                                        {question.question.answer_c}
+                                    </button>
+                                ) : null
+                    }
+                    {
+                        question.question.image_d_url && question.question.answer_d ? (
+                            <button value={question.question.answer_d}
+                                onClick={(e) => handleAnswer(e)}
+                                style={selectedAnswer === question.question.answer_d || selectedAnswer === '' ? {
                                     backgroundImage: `url(${question.question.image_d_url})`,
-                                    backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%', opacity: 0.3
-                                }}
-                        />
-                    ) : question.question.answer_d ?
-                            (
-                                <button value={question.question.answer_d}
-                                    onClick={(e) => handleAnswer(e)}
-                                    style={selectedAnswer === question.question.answer_d || selectedAnswer === '' ? { background: colorD } : { background: colorD, opacity: 0.3 }}
-                                >
-                                    {question.question.answer_d}
-                                </button>
-                            ) : null
-                }
-                {
-                    question.question.image_e_url && question.question.answer_e ? (
-                        <button value={question.question.answer_e}
-                            onClick={(e) => handleAnswer(e)}
-                            style={selectedAnswer === question.question.answer_e || selectedAnswer === '' ? {
-                                backgroundImage: `url(${question.question.image_e_url})`,
-                                backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
-                            } :
-                                {
+                                    backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
+                                } :
+                                    {
+                                        backgroundImage: `url(${question.question.image_d_url})`,
+                                        backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%', opacity: 0.3
+                                    }}
+                            />
+                        ) : question.question.answer_d ?
+                                (
+                                    <button value={question.question.answer_d}
+                                        onClick={(e) => handleAnswer(e)}
+                                        style={selectedAnswer === question.question.answer_d || selectedAnswer === '' ? { background: colorD } : { background: colorD, opacity: 0.3 }}
+                                    >
+                                        {question.question.answer_d}
+                                    </button>
+                                ) : null
+                    }
+                    {
+                        question.question.image_e_url && question.question.answer_e ? (
+                            <button value={question.question.answer_e}
+                                onClick={(e) => handleAnswer(e)}
+                                style={selectedAnswer === question.question.answer_e || selectedAnswer === '' ? {
                                     backgroundImage: `url(${question.question.image_e_url})`,
-                                    backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%', opacity: 0.3
-                                }}
-                        />
-                    ) : question.question.answer_e ?
-                            (
-                                <button value={question.question.answer_e}
-                                    onClick={(e) => handleAnswer(e)}
-                                    style={selectedAnswer === question.question.answer_e || selectedAnswer === '' ? { background: colorE } : { background: colorE, opacity: 0.3 }}
-                                >
-                                    {question.question.answer_e}
-                                </button>
-                            ) : null
-                }
-            </Alternatives>
+                                    backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
+                                } :
+                                    {
+                                        backgroundImage: `url(${question.question.image_e_url})`,
+                                        backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%', opacity: 0.3
+                                    }}
+                            />
+                        ) : question.question.answer_e ?
+                                (
+                                    <button value={question.question.answer_e}
+                                        onClick={(e) => handleAnswer(e)}
+                                        style={selectedAnswer === question.question.answer_e || selectedAnswer === '' ? { background: colorE } : { background: colorE, opacity: 0.3 }}
+                                    >
+                                        {question.question.answer_e}
+                                    </button>
+                                ) : null
+                    }
+                </Alternatives>
 
-            <ViewButton onClick={handleConfirmAnswer}>
-                <p>CONFIRMA eR</p>
-            </ViewButton>
-        </Container>
+                <ViewButton onClick={handleConfirmAnswer}>
+                    <p>CONFIRMA eR</p>
+                </ViewButton>
+            </Container>
+        </Div100vh>
     )
 }
 
