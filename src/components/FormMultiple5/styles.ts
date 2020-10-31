@@ -24,7 +24,7 @@ export const Header = styled.div`
 
     color: #fff;
 
-    padding: 15px;
+    padding: 10px;
 
     h1 {
         text-align: center;
@@ -33,10 +33,11 @@ export const Header = styled.div`
 `;
 
 export const Alternatives = styled.div`
-    height: 72vh;
+    height: 80vh;
     width: 100%;
-    background-color: #000;
+
     display: flex;
+    flex: 1;
     align-items: flex-start;
     justify-content: space-around;
     flex-direction: column;
@@ -45,14 +46,18 @@ export const Alternatives = styled.div`
     padding-bottom: 20px;
 
     button {
-        height: 100%;
-        margin-bottom: 10px;
+        height: 12.5vh;
         width: 90vw;
         border-radius: 10px;
         border: none;
+        margin: 0 auto;
+
         display: flex;
         align-items: center;
         justify-content: center;
+
+        padding: 10px;
+
         font-size: 18px;
     }
 `;
