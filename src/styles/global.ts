@@ -13,6 +13,9 @@ export default createGlobalStyle`
   height: -webkit-fill-available;
   height: 100%;
 }
+html, body, #root {
+  height: 100%;
+}
   body {
     background: #eee;
     color: #CC00EB;
