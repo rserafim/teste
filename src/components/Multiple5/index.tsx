@@ -1,5 +1,4 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import Div100vh from 'react-div-100vh';
 
 import ModalAnswerSent from '../ModalAnswerSent';
 import RandomColors from '../RandomColors'
@@ -71,7 +70,7 @@ const Question: React.FC<QuestionProps> = (question) => {
         setOpenModal(true)
     }, [question.question.id, selectedAnswer])
     return (
-        <Div100vh>
+        <>
             <Header>
                 <h1>{question.question.title}</h1>
             </Header>
@@ -201,7 +200,7 @@ const Question: React.FC<QuestionProps> = (question) => {
             <ViewButton onClick={handleConfirmAnswer}>
                 <p>CONFIRMA eR</p>
             </ViewButton>
-        </Div100vh>
+        </>
     )
 }
 
